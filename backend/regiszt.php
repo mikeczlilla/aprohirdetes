@@ -53,3 +53,4 @@ if (array_search($email, $arrayEmail)) {
 
 mysqli_close($conn);
 exit;
+?>

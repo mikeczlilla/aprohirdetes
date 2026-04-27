@@ -49,3 +49,4 @@ if ($arrayJelszo == $jelszo) {
     $_SESSION["hibauzenet"] = "Érvénytelen bejelentkezés!";
     header('Location: ../frontend/index.php');
 }
+?>
