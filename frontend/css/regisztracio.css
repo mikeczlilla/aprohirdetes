@@ -49,11 +49,16 @@ p {
 
 @media (width > 900px) {
   .card-body {
-    min-width: 900px;
+    max-width: 900px;
   }
   #div-regisztracio {
     position: absolute;
     left: 60%;
     bottom: 5%;
+  }
+}
+@media (width < 1280px){
+  .logo{
+    display: none;
   }
 }
