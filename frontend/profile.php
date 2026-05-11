@@ -59,7 +59,7 @@
                     </form>
                 </div>
                 <div>
-                    <button type="submit" formaction="fooldal.html" class="btn btn-secondary">Vissza</button>
+                    <form action=""><button type="submit" formaction="fooldal.html" class="btn btn-secondary">Vissza</button></form>
                 </div>
             </div>
         </div>
