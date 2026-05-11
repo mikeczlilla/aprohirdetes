@@ -43,9 +43,10 @@ if ($arrayJelszo == $jelszo) {
         $_SESSION["tszam"] = $row["tszam"];
     }
     echo "Sikeres bejelentkezés";
-    header('Location: ../frontend/fooldal.php');
+    header('Location: ../frontend/fooldal.html');
     exit;
 } else {
     $_SESSION["hibauzenet"] = "Érvénytelen bejelentkezés!";
     header('Location: ../frontend/index.php');
 }
+?>

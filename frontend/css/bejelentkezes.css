@@ -53,3 +53,8 @@ p {
     bottom: 10%;
   }
 }
+@media (width < 900px){
+  .logo{
+    display: none;
+  }
+}
