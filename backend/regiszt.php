@@ -19,7 +19,6 @@ $jelszo1 = $_POST["jelszo1"];
 $tfon = $_POST["tfon"];
 $szdatum = $_POST["szdatum"];
 
-
 $sql = "SELECT email FROM felhasznalok";
 $result = mysqli_query($conn, $sql);
 $arrayEmail = ["a"];
@@ -53,4 +52,3 @@ if (array_search($email, $arrayEmail)) {
 
 mysqli_close($conn);
 exit;
-?>
