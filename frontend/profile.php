@@ -24,6 +24,8 @@
 </head>
 
 <body>
+<img style="width: 100px; position: absolute; top: 30px; left: 30px; border-radius: 10px;" class="logo"
+src="kep/logo1.png" alt="logo">
     <div class="card">
         <div class="card-body">
             <h1>Profil</h1>
