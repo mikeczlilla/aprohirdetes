@@ -34,7 +34,6 @@ src="kep/logo1.png" alt="logo">
                 <li><b>Keresztnév: </b><i><?php echo $_SESSION['knev']; ?></i></li>
                 <li><b>Felhasználónév: </b><i><?php echo $_SESSION['fnev']; ?></i></li>
                 <li><b>Email cím: </b><i><?php echo $_SESSION['email']; ?></i></li>
-                <li><b>Jelszó: </b><i><?php echo $_SESSION['jelszo']; ?></i></li>
                 <li><b>Telefonszám: </b><i><?php echo $_SESSION['tszam']; ?></i></li>
                 <li><b>Születési dátum: </b><i><?php echo $_SESSION['sztdatum']; ?></i></li>
             </ul>
