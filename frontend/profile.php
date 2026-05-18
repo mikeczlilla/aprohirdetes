@@ -60,7 +60,7 @@ src="kep/logo1.png" alt="logo">
                     </form>
                 </div>
                 <div>
-                    <form action=""><button type="submit" formaction="fooldal.html" class="btn btn-secondary">Vissza</button></form>
+                    <form action=""><button type="submit" formaction="fooldal.php" class="btn btn-secondary">Vissza</button></form>
                 </div>
             </div>
         </div>

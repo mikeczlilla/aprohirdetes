@@ -53,6 +53,9 @@ li, h5{
   top: 55px;
   right: 50px;
 }
+img{
+  width: 200px;
+}
 #profile {
   position: absolute;
   top: 20px;

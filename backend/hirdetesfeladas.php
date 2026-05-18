@@ -23,23 +23,9 @@ $leiras = trim($_POST['leiras']);
 $ar = trim($_POST['ar']);
 $felhasznaloId = $_SESSION['id'];
 
-
-$kep = '';
-if (isset($_FILES['kep']) && $_FILES['kep']['error'] === UPLOAD_ERR_OK) {
-    $uploadDir = '../uploads/';
-    if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0777, true);
-    }
-    $fileName = time() . '_' . basename($_FILES['kep']['name']);
-    $targetFile = $uploadDir . $fileName;
-    if (move_uploaded_file($_FILES['kep']['tmp_name'], $targetFile)) {
-        $kep = $targetFile;
-    } else {
-        $_SESSION["hibauzenet"] = "Kép feltöltése sikertelen!";
-        header('Location: ../frontend/hirdetesfeladas.html');
-        exit;
-    }
-}
+$target_file = trim($_POST['kep']);
+$kep = "kep/hirdetesek_kep/" . strtolower(pathinfo($target_file, PATHINFO_BASENAME));
+$_SESSION['kep_utvonal'] = $kep;
 
 $sql = "INSERT INTO hirdetesek (cim, ar, leiras, kep, felhasznaloId) VALUES (?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
@@ -51,7 +37,7 @@ $stmt->bind_param("sissi", $cim, $ar, $leiras, $kep, $felhasznaloId);
 
 if ($stmt->execute()) {
     $_SESSION["sikeruzenet"] = "Hirdetés sikeresen feltöltve!";
-    header('Location: ../frontend/fooldal.html');
+    header('Location: ../frontend/fooldal.php');
     exit;
 } else {
     echo "Hiba: " . $stmt->error;
