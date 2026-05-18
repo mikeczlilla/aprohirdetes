@@ -29,28 +29,28 @@
         <div class="card-body">
             <h1>Apróhirdetés feladása</h1>
             <div class="container">
-                <form action="">
+                <form action="../backend/hirdetesfeladas.php" method="post">
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Hirdetés címe: </label>
-                        <input type="text" class="form-control" id="cim">
+                        <input type="text" class="form-control" id="cim" name="cim">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Hirdetés leírása: </label>
-                        <textarea class="form-control" id="leiras" rows="3"></textarea>
+                        <textarea class="form-control" id="leiras" name="leiras" rows="3"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">A termék ára (Forint): </label>
-                        <input type="number" class="form-control" id="ar">
+                        <input type="number" class="form-control" id="ar" name="ar">
                     </div>
                     <div class="mb-3">
                         <label for="formFileMultiple" class="form-label">Képek feltöltése: </label>
-                        <input class="form-control" type="file" accept=".png, .jpg, .jpeg" id="kep">
+                        <input class="form-control" type="file" accept=".png, .jpg, .jpeg" id="kep" name="kep">
                     </div>
                     <div class="col-auto">
                         <button type="submit" class="btn btn-primary mb-3">Hirdetés feltöltése</button>
                     </div>
                 </form>
-                <form action=""><button type="submit" onclick="createCardElement(cardData)" formaction="fooldal.html" class="btn btn-danger">Mégse</button></form>
+                <form action=""><button type="submit" formaction="fooldal.html" class="btn btn-danger">Mégse</button></form>
             </div>
         </div>
     </div>

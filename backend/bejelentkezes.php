@@ -31,9 +31,10 @@ if ($email == "" or $arrayEmail != $email) {
 }
 
 if ($arrayJelszo == $jelszo) {
-    $sql = "SELECT fnev, vnev, knev, tszam, sztdatum FROM felhasznalok WHERE email = '$email'";
+    $sql = "SELECT id, fnev, vnev, knev, tszam, sztdatum FROM felhasznalok WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($result)) {
+        $_SESSION["id"] = $row["id"];
         $_SESSION["fnev"] = $row["fnev"];
         $_SESSION["vnev"] = $row["vnev"];
         $_SESSION["knev"] = $row["knev"];
