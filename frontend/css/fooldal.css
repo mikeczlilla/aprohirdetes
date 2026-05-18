@@ -42,8 +42,11 @@ h1 {
   margin-bottom: 40px;
 }
 p,
-h4 {
+h4, li, h5, h6 {
   color: black;
+}
+li, h5{
+  text-align: left;
 }
 #hFeladas {
   position: absolute;

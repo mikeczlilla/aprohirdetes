@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Ápr 27. 11:03
+-- Létrehozás ideje: 2026. Máj 18. 10:35
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.2.4
 
@@ -11,8 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-CREATE DATABASE IF NOT EXISTS aprohirdetes DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci;
-USE aprohirdetes;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -22,6 +20,9 @@ USE aprohirdetes;
 --
 -- Adatbázis: `aprohirdetes`
 --
+
+CREATE DATABASE IF NOT EXISTS aprohirdetes DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci;
+USE aprohirdetes;
 
 -- --------------------------------------------------------
 
@@ -45,7 +46,23 @@ CREATE TABLE `felhasznalok` (
 --
 
 INSERT INTO `felhasznalok` (`id`, `fnev`, `vnev`, `knev`, `email`, `jelszo`, `tszam`, `sztdatum`) VALUES
-(1, 'hlevente08', 'Holló', 'Levente', 'hlevente08@mail.com', 'qwert123', '06301234567', '2008-09-07');
+(1, 'hlevente08', 'Holló', 'Levente', 'hlevente08@mail.com', 'qwert123', '06301234567', '2008-09-07'),
+(3, 'tp67', 'Teszt', 'Péter', 'tp67@mail.com', 'asdf1234', '06708943371', '2006-06-07');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `hirdetesek`
+--
+
+CREATE TABLE `hirdetesek` (
+  `id` int(11) NOT NULL,
+  `cim` varchar(100) NOT NULL,
+  `ar` int(11) NOT NULL,
+  `leiras` varchar(300) NOT NULL,
+  `kep` varchar(300) NOT NULL,
+  `felhasznaloId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- Indexek a kiírt táblákhoz
@@ -58,6 +75,13 @@ ALTER TABLE `felhasznalok`
   ADD PRIMARY KEY (`id`);
 
 --
+-- A tábla indexei `hirdetesek`
+--
+ALTER TABLE `hirdetesek`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `felhasznaloId` (`felhasznaloId`);
+
+--
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
 
@@ -65,7 +89,23 @@ ALTER TABLE `felhasznalok`
 -- AUTO_INCREMENT a táblához `felhasznalok`
 --
 ALTER TABLE `felhasznalok`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT a táblához `hirdetesek`
+--
+ALTER TABLE `hirdetesek`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Megkötések a kiírt táblákhoz
+--
+
+--
+-- Megkötések a táblához `hirdetesek`
+--
+ALTER TABLE `hirdetesek`
+  ADD CONSTRAINT `felhasznaloId` FOREIGN KEY (`felhasznaloId`) REFERENCES `felhasznalok` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
