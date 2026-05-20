@@ -77,4 +77,15 @@ img{
   .logo{
     display: none;
   }
+  .container{
+    display: block;
+  }
+  .innerCard{
+    width: auto;
+  }
+  #hFeladas{
+    position: unset;
+    text-align: center;
+    margin-bottom: 30px;
+  }
 }
