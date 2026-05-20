@@ -6,7 +6,7 @@ body {
 .card {
   background-color: #1c2321;
   color: white;
-  max-width: 1500px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 126px;
@@ -15,13 +15,13 @@ body {
 }
 .card-body {
   padding: 50px;
-  max-width: 1500px;
+  max-width: 1600px;
   margin-left: auto;
   margin-right: auto;
 }
 .innerCard {
   background-color: white;
-  width: 370px;
+  width: 315px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
@@ -30,11 +30,16 @@ body {
   padding: 10px;
   max-height: 500px;
 }
+.content{
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .container {
   display: grid;
   /* grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr); */
-  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;

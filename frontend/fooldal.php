@@ -55,6 +55,7 @@ $result = $conn -> query($sql);
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 echo '<div class="innerCard">';
+                echo '<div class="content">';
                 $kepPath = !empty($row["kep"]) ? htmlspecialchars($row["kep"]) : 'kep/logo1.png';
                 echo '<img src="' . $kepPath . '" alt="A hirdetés képe" id="hirdetesKep">';
                 
@@ -70,6 +71,7 @@ $result = $conn -> query($sql);
                 echo '</ul>';
                 echo '</div>';
                 echo '<p id="feltoltesIdo">Feltöltés ideje: ' . htmlspecialchars($row["feltoltes_ideje"]) . ' </p>';
+                echo '</div>';
                 echo '</div>';
             }
         } else {
