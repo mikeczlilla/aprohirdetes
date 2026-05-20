@@ -45,7 +45,7 @@ $result = $conn -> query($sql);
   
   <div class="card">
     <div class="card-body">
-      <h1>Hirdetések</h1>
+      <h1>Apróhirdetések</h1>
       <form action="" id="hFeladas">
           <button type="submit" class="btn btn-outline-primary" formaction="hirdetesfeladas.html">Hirdetés feladása</button>
       </form>
