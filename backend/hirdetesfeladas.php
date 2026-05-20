@@ -12,11 +12,11 @@ if ($conn->connect_error) {
 }
 
 
-if (!isset($_POST['cim']) || !isset($_POST['leiras']) || !isset($_POST['ar'])) {
-    $_SESSION["hibauzenet"] = "Minden mező kitöltése kötelező!";
-    header('Location: ../frontend/hirdetes_feltoltes.html');
-    exit;
-}
+// if (!isset($_POST['cim']) || !isset($_POST['leiras']) || !isset($_POST['ar'])) {
+//     $_SESSION["hibauzenet"] = "Minden mező kitöltése kötelező!";
+//     header('Location: ../frontend/hirdetes_feltoltes.html');
+//     exit;
+// }
 
 $cim = trim($_POST['cim']);
 $leiras = trim($_POST['leiras']);
