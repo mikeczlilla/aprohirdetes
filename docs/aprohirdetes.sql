@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Máj 18. 10:35
+-- Létrehozás ideje: 2026. Máj 20. 10:39
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.2.4
 
@@ -21,10 +21,9 @@ SET time_zone = "+00:00";
 -- Adatbázis: `aprohirdetes`
 --
 
-CREATE DATABASE IF NOT EXISTS aprohirdetes DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_hungarian_ci;
-USE aprohirdetes;
-
 -- --------------------------------------------------------
+CREATE DATABASE IF NOT EXISTS aprohirdetes DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
+USE aprohirdetes;
 
 --
 -- Tábla szerkezet ehhez a táblához `felhasznalok`
@@ -61,6 +60,7 @@ CREATE TABLE `hirdetesek` (
   `ar` int(11) NOT NULL,
   `leiras` varchar(300) NOT NULL,
   `kep` varchar(300) NOT NULL,
+  `feltoltes_ideje` date NOT NULL DEFAULT '2026-04-12',
   `felhasznaloId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 

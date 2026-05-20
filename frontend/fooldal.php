@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Adatbázis kapcsolat
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -12,11 +11,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Lekérdezzük a hirdetéseket és a hozzájuk tartozó felhasználó adatait (email, telefon)
-$sql = "SELECT hirdetesek.cim, hirdetesek.ar, hirdetesek.leiras, hirdetesek.kep, felhasznalok.email, felhasznalok.tszam 
+$sql = "SELECT hirdetesek.cim, hirdetesek.ar, hirdetesek.leiras, hirdetesek.kep, hirdetesek.feltoltes_ideje, felhasznalok.email, felhasznalok.tszam 
         FROM hirdetesek 
         inner JOIN felhasznalok ON hirdetesek.felhasznaloId = felhasznalok.id 
-        ORDER BY hirdetesek.id DESC"; // Csökkenő sorrend, hogy a legújabb legyen legelöl
+        ORDER BY hirdetesek.id DESC";
 
 $result = $conn -> query($sql);
 ?>
@@ -55,20 +53,15 @@ $result = $conn -> query($sql);
       <div class="container">
         <?php
         if ($result->num_rows > 0) {
-            // Végigmegyünk az összes talált hirdetésen
             while($row = $result->fetch_assoc()) {
                 echo '<div class="innerCard">';
-                
-                // Ha van kép, megjelenítjük, ha nincs, adhatsz egy default képet is
                 $kepPath = !empty($row["kep"]) ? htmlspecialchars($row["kep"]) : 'kep/logo1.png';
-                echo '<img src="' . $kepPath . '" alt="A hirdetés képe">';
+                echo '<img src="' . $kepPath . '" alt="A hirdetés képe" id="hirdetesKep">';
                 
-                // Cím, ár és leírás kiírása a htmlspecialchars() függvénnyel a biztonság (XSS elleni védelem) érdekében
                 echo '<h4>' . htmlspecialchars($row["cim"]) . '</h4>';
                 echo '<h6>Ár: ' . number_format($row["ar"], 0, ',', ' ') . ' Ft</h6>';
                 echo '<p>' . nl2br(htmlspecialchars($row["leiras"])) . '</p>';
                 
-                // Elérhetőségek
                 echo '<div>';
                 echo '<h5>Elérhetőségek:</h5>';
                 echo '<ul>';
@@ -76,11 +69,11 @@ $result = $conn -> query($sql);
                 echo '<li>Telefonszám: ' . htmlspecialchars($row["tszam"]) . '</li>';
                 echo '</ul>';
                 echo '</div>';
-                
-                echo '</div>'; // innerCard vége
+                echo '<p id="feltoltesIdo">Feltöltés ideje: ' . htmlspecialchars($row["feltoltes_ideje"]) . ' </p>';
+                echo '</div>';
             }
         } else {
-            echo '<p>Még nincsenek feltöltött hirdetések.</p>';
+            echo '<p style="color: white; text-align: center;">Még nincsenek feltöltött hirdetések.</p>';
         }
         
         $conn->close();
