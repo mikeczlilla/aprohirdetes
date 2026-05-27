@@ -38,14 +38,12 @@ $result = $conn -> query($sql);
 </head>
 
 <body>
-  <a href="profile.php" title="Profil" id="profile">
-      <img src="kep/account_circle.svg" style="width: 50px;" alt="profile">
-  </a>
-  <img style="width: 100px; position: absolute; top: 30px; left: 30px; border-radius: 10px;" class="logo" src="kep/logo1.png" alt="logo">
+  <form action="" id="profile"><button type="submit" class="btn btn-dark" style="width: 100px;" formaction="profile.php">Profil</button></form>
+  <img style="width: 100px; position: absolute; top: 30px; left: 30px; border-radius: 10px; border: 1px solid gray;" class="logo" src="kep/logo1.png" alt="logo">
   
   <div class="card">
     <div class="card-body">
-      <h1>Apróhirdetések</h1>
+      <h1>Apróhirdetések</h1> 
       <form action="" id="hFeladas">
           <button type="submit" class="btn btn-outline-primary" formaction="hirdetesfeladas.html">Hirdetés feladása</button>
       </form>
