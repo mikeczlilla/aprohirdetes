@@ -29,7 +29,7 @@
         <div class="card-body">
             <h1>Apróhirdetés feladása</h1>
             <div class="container">
-                <form action="../backend/hirdetesfeladas.php" method="post">
+                <form action="../backend/hirdetesfeladas.php" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Hirdetés címe: </label>
                         <input type="text" class="form-control" id="cim" name="cim">
@@ -54,6 +54,5 @@
             </div>
         </div>
     </div>
-<script src="../backend/hirdetesfeladas.js"></script>
 </body>
 </html>

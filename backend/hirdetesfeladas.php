@@ -24,9 +24,13 @@ $ar = trim($_POST['ar']);
 $felhasznaloId = $_SESSION['id'];
 $feltoltes_ideje = date("Y-m-d");
 
-$target_file = trim($_POST['kep']);
-$kep = "kep/hirdetesek_kep/" . strtolower(pathinfo($target_file, PATHINFO_BASENAME));
+$kepadat = $_FILES['kep'];
+
+$ext = strtolower(pathinfo($kepadat['name'], PATHINFO_EXTENSION));
+$filename = pathinfo($kepadat['name'], PATHINFO_EXTENSION);
+$kep = "../frontend/kep/hirdetesek_kep/" . $filename . "." . $ext;
 $_SESSION['kep_utvonal'] = $kep;
+move_uploaded_file($kepadat['tmp_name'], $kep);
 
 $sql = "INSERT INTO hirdetesek (cim, ar, leiras, kep, feltoltes_ideje, felhasznaloId) VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
