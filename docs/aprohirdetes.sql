@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2026. Máj 20. 10:39
+-- Létrehozás ideje: 2026. Jún 01. 14:39
 -- Kiszolgáló verziója: 10.4.28-MariaDB
 -- PHP verzió: 8.2.4
 
@@ -20,10 +20,10 @@ SET time_zone = "+00:00";
 --
 -- Adatbázis: `aprohirdetes`
 --
-
--- --------------------------------------------------------
 CREATE DATABASE IF NOT EXISTS aprohirdetes DEFAULT CHARACTER SET utf8 COLLATE utf8_hungarian_ci;
 USE aprohirdetes;
+
+-- --------------------------------------------------------
 
 --
 -- Tábla szerkezet ehhez a táblához `felhasznalok`
@@ -65,6 +65,17 @@ CREATE TABLE `hirdetesek` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
+-- A tábla adatainak kiíratása `hirdetesek`
+--
+
+INSERT INTO `hirdetesek` (`id`, `cim`, `ar`, `leiras`, `kep`, `feltoltes_ideje`, `felhasznaloId`) VALUES
+(1, 'Suzuki Swift', 299000, 'Jó állapotú, garázsban tartott Swift', '../frontend/kep/hirdetesek_kep/letöltés.jpg', '2026-06-01', 3),
+(2, 'Bojler', 20000, 'Nem lopott, kiváló állapotú, jó egészségnek örvend bojler', '../frontend/kep/hirdetesek_kep/virtual.png', '2026-06-01', 3),
+(3, 'Tűzcsap', 54999, 'Vízzel', '../frontend/kep/hirdetesek_kep/Downtown_Charlottesville_fire_hydrant.jpg', '2026-06-01', 1),
+(4, 'Oplel', 500000, 'Korza, allapota ok NEM LOPOTT!!!!!!', '../frontend/kep/hirdetesek_kep/corsa.jpg', '2026-06-01', 3),
+(5, 'egy marék szanaksz', 400, 'használt, sxzanakxszk', '../frontend/kep/hirdetesek_kep/_101013372_img_6877.jpg', '2026-06-01', 3);
+
+--
 -- Indexek a kiírt táblákhoz
 --
 
@@ -95,7 +106,7 @@ ALTER TABLE `felhasznalok`
 -- AUTO_INCREMENT a táblához `hirdetesek`
 --
 ALTER TABLE `hirdetesek`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Megkötések a kiírt táblákhoz
