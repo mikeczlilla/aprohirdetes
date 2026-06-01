@@ -26,9 +26,8 @@ $feltoltes_ideje = date("Y-m-d");
 
 $kepadat = $_FILES['kep'];
 
-$ext = strtolower(pathinfo($kepadat['name'], PATHINFO_EXTENSION));
-$filename = pathinfo($kepadat['name'], PATHINFO_EXTENSION);
-$kep = "../frontend/kep/hirdetesek_kep/" . $filename . "." . $ext;
+$filename = pathinfo($kepadat['name'], PATHINFO_BASENAME);
+$kep = "../frontend/kep/hirdetesek_kep/" . $filename;
 $_SESSION['kep_utvonal'] = $kep;
 move_uploaded_file($kepadat['tmp_name'], $kep);
 
