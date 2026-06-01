@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <img style="width: 100px; position: absolute; top: 30px; left: 30px; border-radius: 10px;" class="logo" src="kep/logo1.png" alt="logo">
+  <img style="width: 100px; position: absolute; top: 30px; left: 30px; border-radius: 10px; border: 1px solid gray;" class="logo" src="kep/logo1.png" alt="logo">
   <div class="card" style="margin-top: 50px;">
     <div class="card-body">
       <h1>Regisztráció</h1>
